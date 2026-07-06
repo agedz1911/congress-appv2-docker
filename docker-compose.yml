@@ -1,0 +1,59 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: docker/php/Dockerfile
+    working_dir: /var/www/html
+    volumes:
+      - ./:/var/www/html
+      - composer-cache:/tmp/composer-cache
+    environment:
+      COMPOSER_CACHE_DIR: /tmp/composer-cache
+    depends_on:
+      - mysql
+    command: >
+      sh -lc "if [ ! -f vendor/autoload.php ]; then composer install; fi && php-fpm"
+
+  web:
+    image: nginx:1.27-alpine
+    depends_on:
+      - app
+    ports:
+      - "8080:80"
+    volumes:
+      - ./:/var/www/html
+      - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
+
+  mysql:
+    image: mysql:8.4
+    ports:
+      - "3307:3306"
+    environment:
+      MYSQL_DATABASE: congress_appv2
+      MYSQL_USER: congress
+      MYSQL_PASSWORD: secret
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - mysql-data:/var/lib/mysql
+
+  node:
+    image: node:20-alpine
+    working_dir: /var/www/html
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./:/var/www/html
+      - node-modules:/var/www/html/node_modules
+    environment:
+      VITE_HOST: 0.0.0.0
+      VITE_PORT: 5173
+      VITE_HMR_HOST: localhost
+      VITE_HMR_PORT: 5173
+      VITE_USE_POLLING: "true"
+    command: >
+      sh -lc "npm install && npm run dev -- --host 0.0.0.0 --port 5173"
+
+volumes:
+  composer-cache:
+  mysql-data:
+  node-modules:
