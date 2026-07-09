@@ -10,8 +10,11 @@ class Participant extends Model
 {
     use HasFactory, SoftDeletes;
 
+    public $incrementing = false;
+
+    protected $keyType = 'string';
+
     protected $fillable = [
-        'id_participant',
         'user_id',
         'firstname',
         'lastname',
@@ -34,6 +37,20 @@ class Participant extends Model
     protected $casts = [
         'roles' => 'array',
     ];
+
+    protected static function booted(): void
+    {
+        static::creating(function (self $participant): void {
+            if (filled($participant->id)) {
+                return;
+            }
+
+            $lastId = static::query()->latest('id')->value('id');
+            $lastNumber = $lastId ? (int) substr($lastId, 6) : 0;
+
+            $participant->id = 'event-' . str_pad((string) ($lastNumber + 1), 4, '0', STR_PAD_LEFT);
+        });
+    }
 
     public function user()
     {

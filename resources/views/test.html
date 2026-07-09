@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en" class="bg-slate-50">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Participant</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="text-slate-800 antialiased min-h-screen py-10 px-4 sm:px-6 lg:px-8">
+
+    <div class="max-w-4xl mx-auto">
+        
+        <!-- Header / Top Card -->
+        <div class="bg-white rounded-2xl shadow-sm border border-slate-100 p-6 mb-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-4 flex-col sm:flex-row text-center sm:text-left">
+                <!-- Avatar Placeholder -->
+                <div class="w-20 h-20 bg-indigo-50 rounded-full flex items-center justify-center text-indigo-600 font-bold text-2xl border border-indigo-100">
+                    JD
+                </div>
+                <div>
+                    <h1 class="text-xl font-bold text-slate-900 flex items-center gap-2 justify-center sm:justify-start">
+                        John Doe
+                        <span class="px-2.5 py-0.5 text-xs font-medium bg-indigo-50 text-indigo-700 rounded-full">Participant</span>
+                    </h1>
+                    <p class="text-sm text-slate-500">ID: PAR-99201</p>
+                </div>
+            </div>
+            
+            <!-- Action Button (Arahkan ke Halaman Edit) -->
+            <a href="/profile/edit" class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-indigo-600 bg-white border border-indigo-200 rounded-xl hover:bg-indigo-50 transition-colors shadow-sm w-full sm:w-auto">
+                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path></svg>
+                Ubah Profil
+            </a>
+        </div>
+
+        <!-- Main Content Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            
+            <!-- Left Column: Account Info & System Data -->
+            <div class="space-y-6">
+                <div class="bg-white rounded-2xl shadow-sm border border-slate-100 p-6">
+                    <h3 class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-4">Informasi Akun</h3>
+                    
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-xs font-medium text-slate-400">User ID</label>
+                            <span class="text-sm font-mono text-slate-700">USR-7712</span>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-medium text-slate-400">Email Utama</label>
+                            <span class="text-sm font-medium text-slate-900 break-all">john.doe@example.com</span>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-medium text-slate-400">Nomor Telepon</label>
+                            <span class="text-sm font-medium text-slate-900">+62 812-3456-7890</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-amber-50/50 rounded-2xl border border-amber-100 p-5">
+                    <div class="flex gap-3">
+                        <svg class="w-5 h-5 text-amber-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+                        <div>
+                            <h4 class="text-xs font-bold text-amber-800 uppercase tracking-wider">Penting</h4>
+                            <p class="text-xs text-amber-700 mt-1 leading-relaxed">Nama pada sertifikat dan NIK harus sesuai dengan dokumen resmi untuk validasi kelulusan.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column: Personal & Professional Details (Takes 2 columns on medium screens) -->
+            <div class="md:col-span-2 space-y-6">
+                
+                <!-- Personal & Certification Section -->
+                <div class="bg-white rounded-2xl shadow-sm border border-slate-100 p-6">
+                    <h3 class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-4 pb-2 border-b border-slate-100">Data Personal & Sertifikasi</h3>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                        <div>
+                            <label class="block text-xs font-medium text-slate-400 mb-0.5">Nama Depan</label>
+                            <p class="text-sm font-medium text-slate-900">John</p>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-medium text-slate-400 mb-0.5">Nama Belakang</label>
+                            <p class="text-sm font-medium text-slate-900">Doe</p>
+                        </div>
+                        <div class="sm:col-span-2 bg-slate-50 p-3 rounded-xl border border-slate-100">
+                            <label class="block text-xs font-medium text-slate-500 mb-0.5">Nama Lengkap di Sertifikat</label>
+                            <p class="text-sm font-semibold text-indigo-900">John Doe, M.T.</p>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-medium text-slate-400 mb-0.5">NIK (Nomor Induk Kependudukan)</label>
+                            <p class="text-sm font-medium text-slate-900 tracking-wide">3273000000000000</p>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-medium text-slate-400 mb-0.5">Tipe Partisipan</label>
+                            <p class="text-sm font-medium text-slate-900">Professional</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Professional Background -->
+                <div class="bg-white rounded-2xl shadow-sm border border-slate-100 p-6">
+                    <h3 class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-4 pb-2 border-b border-slate-100">Latar Belakang Profesional</h3>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                        <div>
+                            <label class="block text-xs font-medium text-slate-400 mb-0.5">Gelar / Title</label>
+                            <p class="text-sm font-medium text-slate-900">Senior Researcher</p>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-medium text-slate-400 mb-0.5">Spesialisasi</label>
+                            <p class="text-sm font-medium text-slate-900">Artificial Intelligence</p>
+                        </div>
+                        <div class="sm:col-span-2">
+                            <label class="block text-xs font-medium text-slate-400 mb-0.5">Institusi / Perusahaan</label>
+                            <p class="text-sm font-medium text-slate-900">Tech Institute of Technology</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Address & Location -->
+                <div class="bg-white rounded-2xl shadow-sm border border-slate-100 p-6">
+                    <h3 class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-4 pb-2 border-b border-slate-100">Alamat & Domisili</h3>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                        <div class="sm:col-span-2">
+                            <label class="block text-xs font-medium text-slate-400 mb-0.5">Alamat Rumah</label>
+                            <p class="text-sm font-medium text-slate-900 leading-relaxed">Jl. Kebon Jeruk No. 12, RT 05/RW 02</p>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-medium text-slate-400 mb-0.5">Kota / Kabupaten</label>
+                            <p class="text-sm font-medium text-slate-900">Jakarta Barat</p>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-medium text-slate-400 mb-0.5">Provinsi</label>
+                            <p class="text-sm font-medium text-slate-900">DKI Jakarta</p>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-medium text-slate-400 mb-0.5">Kode Pos</label>
+                            <p class="text-sm font-medium text-slate-900 tracking-wider">11530</p>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-medium text-slate-400 mb-0.5">Negara</label>
+                            <p class="text-sm font-medium text-slate-900">Indonesia</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>

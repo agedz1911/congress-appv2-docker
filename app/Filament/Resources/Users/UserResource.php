@@ -27,7 +27,7 @@ class UserResource extends Resource
     protected static ?string $model = User::class;
 
     // protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::UserGroup;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::UserCircle;
     protected static string|UnitEnum|null $navigationGroup = 'User Management';
     protected static ?string $recordTitleAttribute = 'User';
 
@@ -67,6 +67,10 @@ class UserResource extends Resource
         return $table
             ->recordTitleAttribute('User')
             ->columns([
+                textColumn::make('id')
+                    ->label('User ID')
+                    ->searchable()
+                    ->sortable(),
                 TextColumn::make('name')
                     ->searchable(),
                 TextColumn::make('lastname')

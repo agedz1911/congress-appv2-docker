@@ -12,9 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('participants', function (Blueprint $table) {
-            $table->id();
-            $table->string('id_participant')->unique();
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->string('id')->primary();
+            $table->string('user_id');
             $table->string('firstname');
             $table->string('lastname');
             $table->string('email');
@@ -33,6 +32,8 @@ return new class extends Migration
             $table->json('roles')->nullable();
             $table->softDeletes();
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users')->cascadeOnDelete();
         });
     }
 
