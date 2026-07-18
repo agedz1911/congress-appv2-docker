@@ -2,8 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
-Route::livewire('/homepage', 'pages::homepage')->name('homepage');
+Route::livewire('/', 'pages::web.registration')->name('web.registration');
