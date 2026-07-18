@@ -12,9 +12,12 @@ use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\MarkdownEditor;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Toggle;
+use Filament\Schemas\Components\Section;
 use Filament\Resources\Pages\ManageRelatedRecords;
 use Filament\Schemas\Schema;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Columns\ToggleColumn;
 use Filament\Tables\Table;
 
 class ManageCategoryProductProducts extends ManageRelatedRecords
@@ -29,29 +32,43 @@ class ManageCategoryProductProducts extends ManageRelatedRecords
     {
         return $schema
             ->components([
-                TextInput::make('name')
-                    ->required(),
-                Select::make('type_product')
-                    ->options([
-                        'Early Bird Registration' => 'Early Bird Registration',
-                        'Normal Registration' => 'Normal Registration',
-                        'Onsite Registration' => 'Onsite Registration',
-                    ])
-                    ->required(),
-                Select::make('type_specialization')
-                    ->options([
-                        'Specialist' => 'Specialist',
-                        'Resident' => 'Resident',
-                        'General Practitioner' => 'General Practitioner',
-                        'Medical Student' => 'Medical Student',
-                    ])
-                    ->required(),
-                TextInput::make('price')
-                    ->numeric()
-                    ->required(),
-                TextInput::make('stock')
-                    ->numeric()
-                    ->required(),
+                Section::make()
+                    ->schema([
+
+                        TextInput::make('name')
+                            ->required(),
+                        Select::make('type_product')
+                            ->options([
+                                'Early Bird Registration' => 'Early Bird Registration',
+                                'Normal Registration' => 'Normal Registration',
+                                'Onsite Registration' => 'Onsite Registration',
+                            ])
+                            ->required(),
+                        Select::make('type_specialization')
+                            ->options([
+                                'Specialist' => 'Specialist',
+                                'Resident' => 'Resident',
+                                'General Practitioner' => 'General Practitioner',
+                                'Medical Student' => 'Medical Student',
+                            ])
+                            ->required(),
+                    ]),
+                Section::make()
+                    ->schema([
+                        TextInput::make('price')
+                            ->numeric()
+                            ->required(),
+                        TextInput::make('discounted_price')
+                            ->numeric()
+                            ->nullable(),
+                        Toggle::make('is_discounted')
+                            ->label('Is Discounted')
+                            ->default(false),
+                        TextInput::make('stock')
+                            ->numeric()
+                            ->required(),
+
+                    ]),
                 DatePicker::make('date_start')
                     ->required()
                     ->beforeOrEqual('date_end')
@@ -80,7 +97,10 @@ class ManageCategoryProductProducts extends ManageRelatedRecords
                     ->label('Type Specialization')
                     ->searchable(),
                 TextColumn::make('price')
+                    ->numeric()
                     ->sortable(),
+                TextColumn::make('discounted_price')
+                    ->numeric(),
                 TextColumn::make('stock')
                     ->sortable(),
                 TextColumn::make('date_start')
@@ -89,6 +109,8 @@ class ManageCategoryProductProducts extends ManageRelatedRecords
                 TextColumn::make('date_end')
                     ->date('d M Y')
                     ->sortable(),
+                ToggleColumn::make('is_discounted')
+                    ->label('Is Discounted'),
             ])
             ->headerActions([
                 CreateAction::make(),

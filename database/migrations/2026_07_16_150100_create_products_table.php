@@ -18,6 +18,8 @@ return new class extends Migration
             $table->string('type_product')->nullable();
             $table->string('type_specialization')->nullable();
             $table->unsignedBigInteger('price');
+            $table->unsignedBigInteger('discounted_price')->nullable();
+            $table->boolean('is_discounted')->default(false);
             $table->unsignedInteger('stock');
             $table->date('date_start');
             $table->date('date_end');

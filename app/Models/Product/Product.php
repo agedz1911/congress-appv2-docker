@@ -17,6 +17,8 @@ class Product extends Model
         'type_product',
         'type_specialization',
         'price',
+        'discounted_price',
+        'is_discounted',
         'stock',
         'date_start',
         'date_end',
