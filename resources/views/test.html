@@ -1,157 +1,373 @@
 <!DOCTYPE html>
-<html lang="en" class="bg-slate-50">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile Participant</title>
-    <!-- Tailwind CSS CDN -->
+    <title>My Cart - Canadian Market</title>
+    <!-- Tailwind CSS and daisyUI via CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body class="text-slate-800 antialiased min-h-screen py-10 px-4 sm:px-6 lg:px-8">
+<body class="bg-[#FFF6F0] font-sans antialiased text-gray-800">
 
-    <div class="max-w-4xl mx-auto">
-        
-        <!-- Header / Top Card -->
-        <div class="bg-white rounded-2xl shadow-sm border border-slate-100 p-6 mb-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-            <div class="flex items-center gap-4 flex-col sm:flex-row text-center sm:text-left">
-                <!-- Avatar Placeholder -->
-                <div class="w-20 h-20 bg-indigo-50 rounded-full flex items-center justify-center text-indigo-600 font-bold text-2xl border border-indigo-100">
-                    JD
-                </div>
-                <div>
-                    <h1 class="text-xl font-bold text-slate-900 flex items-center gap-2 justify-center sm:justify-start">
-                        John Doe
-                        <span class="px-2.5 py-0.5 text-xs font-medium bg-indigo-50 text-indigo-700 rounded-full">Participant</span>
-                    </h1>
-                    <p class="text-sm text-slate-500">ID: PAR-99201</p>
-                </div>
-            </div>
-            
-            <!-- Action Button (Arahkan ke Halaman Edit) -->
-            <a href="/profile/edit" class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-indigo-600 bg-white border border-indigo-200 rounded-xl hover:bg-indigo-50 transition-colors shadow-sm w-full sm:w-auto">
-                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path></svg>
-                Ubah Profil
-            </a>
+    <!-- TOP HEADER BAR -->
+    <div class="bg-[#1A1A1A] text-gray-300 text-xs py-2 px-4 md:px-12 flex justify-between items-center border-b border-gray-800">
+        <div>Welcome to canadianmarket.ca</div>
+        <div class="flex items-center gap-4">
+            <a href="#" class="hover:underline flex items-center gap-1"><i class="fa-regular fa-comment-dots"></i> Support</a>
+            <span class="flex items-center gap-1"><img src="https://flagcdn.com/w20/ca.png" alt="Canada" class="w-4 h-3"> Canada <i class="fa-solid fa-chevron-down text-[10px]"></i></span>
+            <span>Winnipeg <i class="fa-solid fa-chevron-down text-[10px]"></i></span>
+            <span class="flex items-center gap-1"><i class="fa-solid fa-earth-americas"></i> EN <i class="fa-solid fa-chevron-down text-[10px]"></i></span>
         </div>
-
-        <!-- Main Content Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            
-            <!-- Left Column: Account Info & System Data -->
-            <div class="space-y-6">
-                <div class="bg-white rounded-2xl shadow-sm border border-slate-100 p-6">
-                    <h3 class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-4">Informasi Akun</h3>
-                    
-                    <div class="space-y-4">
-                        <div>
-                            <label class="block text-xs font-medium text-slate-400">User ID</label>
-                            <span class="text-sm font-mono text-slate-700">USR-7712</span>
-                        </div>
-                        <div>
-                            <label class="block text-xs font-medium text-slate-400">Email Utama</label>
-                            <span class="text-sm font-medium text-slate-900 break-all">john.doe@example.com</span>
-                        </div>
-                        <div>
-                            <label class="block text-xs font-medium text-slate-400">Nomor Telepon</label>
-                            <span class="text-sm font-medium text-slate-900">+62 812-3456-7890</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-amber-50/50 rounded-2xl border border-amber-100 p-5">
-                    <div class="flex gap-3">
-                        <svg class="w-5 h-5 text-amber-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
-                        <div>
-                            <h4 class="text-xs font-bold text-amber-800 uppercase tracking-wider">Penting</h4>
-                            <p class="text-xs text-amber-700 mt-1 leading-relaxed">Nama pada sertifikat dan NIK harus sesuai dengan dokumen resmi untuk validasi kelulusan.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Right Column: Personal & Professional Details (Takes 2 columns on medium screens) -->
-            <div class="md:col-span-2 space-y-6">
-                
-                <!-- Personal & Certification Section -->
-                <div class="bg-white rounded-2xl shadow-sm border border-slate-100 p-6">
-                    <h3 class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-4 pb-2 border-b border-slate-100">Data Personal & Sertifikasi</h3>
-                    
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                        <div>
-                            <label class="block text-xs font-medium text-slate-400 mb-0.5">Nama Depan</label>
-                            <p class="text-sm font-medium text-slate-900">John</p>
-                        </div>
-                        <div>
-                            <label class="block text-xs font-medium text-slate-400 mb-0.5">Nama Belakang</label>
-                            <p class="text-sm font-medium text-slate-900">Doe</p>
-                        </div>
-                        <div class="sm:col-span-2 bg-slate-50 p-3 rounded-xl border border-slate-100">
-                            <label class="block text-xs font-medium text-slate-500 mb-0.5">Nama Lengkap di Sertifikat</label>
-                            <p class="text-sm font-semibold text-indigo-900">John Doe, M.T.</p>
-                        </div>
-                        <div>
-                            <label class="block text-xs font-medium text-slate-400 mb-0.5">NIK (Nomor Induk Kependudukan)</label>
-                            <p class="text-sm font-medium text-slate-900 tracking-wide">3273000000000000</p>
-                        </div>
-                        <div>
-                            <label class="block text-xs font-medium text-slate-400 mb-0.5">Tipe Partisipan</label>
-                            <p class="text-sm font-medium text-slate-900">Professional</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Professional Background -->
-                <div class="bg-white rounded-2xl shadow-sm border border-slate-100 p-6">
-                    <h3 class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-4 pb-2 border-b border-slate-100">Latar Belakang Profesional</h3>
-                    
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                        <div>
-                            <label class="block text-xs font-medium text-slate-400 mb-0.5">Gelar / Title</label>
-                            <p class="text-sm font-medium text-slate-900">Senior Researcher</p>
-                        </div>
-                        <div>
-                            <label class="block text-xs font-medium text-slate-400 mb-0.5">Spesialisasi</label>
-                            <p class="text-sm font-medium text-slate-900">Artificial Intelligence</p>
-                        </div>
-                        <div class="sm:col-span-2">
-                            <label class="block text-xs font-medium text-slate-400 mb-0.5">Institusi / Perusahaan</label>
-                            <p class="text-sm font-medium text-slate-900">Tech Institute of Technology</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Address & Location -->
-                <div class="bg-white rounded-2xl shadow-sm border border-slate-100 p-6">
-                    <h3 class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-4 pb-2 border-b border-slate-100">Alamat & Domisili</h3>
-                    
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                        <div class="sm:col-span-2">
-                            <label class="block text-xs font-medium text-slate-400 mb-0.5">Alamat Rumah</label>
-                            <p class="text-sm font-medium text-slate-900 leading-relaxed">Jl. Kebon Jeruk No. 12, RT 05/RW 02</p>
-                        </div>
-                        <div>
-                            <label class="block text-xs font-medium text-slate-400 mb-0.5">Kota / Kabupaten</label>
-                            <p class="text-sm font-medium text-slate-900">Jakarta Barat</p>
-                        </div>
-                        <div>
-                            <label class="block text-xs font-medium text-slate-400 mb-0.5">Provinsi</label>
-                            <p class="text-sm font-medium text-slate-900">DKI Jakarta</p>
-                        </div>
-                        <div>
-                            <label class="block text-xs font-medium text-slate-400 mb-0.5">Kode Pos</label>
-                            <p class="text-sm font-medium text-slate-900 tracking-wider">11530</p>
-                        </div>
-                        <div>
-                            <label class="block text-xs font-medium text-slate-400 mb-0.5">Negara</label>
-                            <p class="text-sm font-medium text-slate-900">Indonesia</p>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
     </div>
+
+    <!-- MAIN NAVBAR -->
+    <header class="navbar bg-white border-b border-gray-200 px-4 md:px-12 py-3 flex justify-between items-center">
+        <div class="flex items-center gap-4 w-full md:w-auto">
+            <button class="btn btn-ghost btn-sm lg:hidden">
+                <i class="fa-solid fa-bars text-xl"></i>
+            </button>
+            <!-- Logo Placeholder (Sesuai warna gambar) -->
+            <div class="flex items-center gap-2 font-bold text-xl">
+                <span class="bg-black text-white px-2 py-1 rounded text-sm flex flex-col items-center justify-center leading-none"><span>C</span><span>M</span></span>
+                <span class="text-black">Canadian<span class="text-[#FF6600]">Market</span></span>
+            </div>
+            
+            <!-- Search Bar -->
+            <div class="hidden md:flex items-center relative ml-6 w-80">
+                <input type="text" placeholder="Restaurants, grocery, fashion" class="input input-bordered input-sm w-full pr-8 rounded bg-gray-50 text-sm focus:outline-none focus:border-[#FF6600]" />
+                <i class="fa-solid fa-magnifying-glass absolute right-3 text-gray-400 text-xs"></i>
+            </div>
+        </div>
+
+        <div class="flex items-center gap-6 text-sm font-medium">
+            <a href="#" class="hidden lg:inline hover:text-[#FF6600]">Stores</a>
+            <a href="#" class="hidden lg:inline hover:text-[#FF6600]">Restaurants</a>
+            <a href="#" class="hidden lg:inline hover:text-[#FF6600]">Marketplace</a>
+            <a href="#" class="hover:text-[#FF6600]">Login / Register</a>
+            
+            <!-- Cart Icon Button -->
+            <div class="relative cursor-pointer text-[#FF6600]">
+                <i class="fa-solid fa-basket-shopping text-xl"></i>
+                <span class="absolute -top-2 -right-2 bg-[#FF6600] text-white rounded-full text-[10px] w-4 h-4 flex items-center justify-center">4</span>
+            </div>
+            
+            <button class="btn btn-sm border-gray-300 bg-white hover:bg-gray-100 rounded text-xs text-gray-700 font-semibold flex items-center gap-1">
+                <i class="fa-solid fa-crosshairs text-[#FF6600]"></i> DETECT LOCATION
+            </button>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT CONTAINER -->
+    <main class="max-w-7xl mx-auto px-4 md:px-8 py-8">
+        
+        <!-- BREADCRUMB -->
+        <div class="text-xs text-gray-500 mb-8">
+            Home <i class="fa-solid fa-chevron-right mx-1 text-[9px]"></i> <span class="text-gray-800 font-medium">Stores</span>
+        </div>
+
+        <!-- STEPPER COMPONENT -->
+        <div class="flex justify-center items-center gap-4 text-sm font-medium text-gray-400 mb-10">
+            <span class="text-gray-900 border-b-2 border-gray-900 pb-1">Cart</span>
+            <div class="w-16 h-[1px] bg-gray-300"></div>
+            <span>Shipping</span>
+            <div class="w-16 h-[1px] bg-gray-300"></div>
+            <span>Payment</span>
+        </div>
+
+        <h1 class="text-2xl font-bold text-gray-900 mb-6">My Cart</h1>
+
+        <!-- GRID LAYOUT -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
+            
+            <!-- LEFT COLUMN: CART ITEMS -->
+            <div class="lg:col-span-2 bg-white rounded-lg shadow-sm border border-gray-100 p-6">
+                <h2 class="text-lg font-bold border-b border-gray-100 pb-4 mb-4">My Cart (4)</h2>
+
+                <!-- PRODUCT LIST (LOOP TEMPLATE) -->
+                <!-- Item 1 -->
+                <div class="flex flex-col sm:flex-row items-start gap-4 py-4 border-b border-gray-100 last:border-b-0">
+                    <div class="w-24 h-24 border border-gray-200 rounded p-2 bg-gray-50 flex items-center justify-center flex-shrink-0">
+                        <!-- Placeholder Sepatu -->
+                        <i class="fa-solid fa-shoe-prints text-3xl text-gray-400 transform -rotate-45"></i>
+                    </div>
+                    <div class="flex-grow">
+                        <h3 class="font-bold text-sm text-gray-900">Delightful Honey - Brown Contact Lenses</h3>
+                        <p class="text-xs text-gray-400 mt-0.5">Canadian Footwear</p>
+                        <p class="text-xs text-gray-500 mt-1">Color: <span class="font-medium text-gray-800">Blue, Brown</span> | Size: <span class="font-medium text-gray-800">6</span></p>
+                        <div class="flex items-center gap-2 mt-3 text-sm">
+                            <span class="text-gray-400 line-through">$652</span>
+                            <span class="font-bold text-gray-950">$652</span>
+                            <span class="text-red-500 text-xs font-semibold">20% OFF</span>
+                        </div>
+                    </div>
+                    <div class="flex sm:flex-col items-end justify-between w-full sm:w-auto h-full sm:h-24 mt-4 sm:mt-0">
+                        <div class="join border border-black rounded-sm bg-black text-white overflow-hidden">
+                            <button class="btn btn-xs join-item bg-black hover:bg-neutral text-white border-none px-2"><i class="fa-solid fa-minus text-[10px]"></i></button>
+                            <span class="px-3 py-0.5 text-xs font-semibold flex items-center bg-white text-black">1</span>
+                            <button class="btn btn-xs join-item bg-black hover:bg-neutral text-white border-none px-2"><i class="fa-solid fa-plus text-[10px]"></i></button>
+                        </div>
+                        <button class="text-xs text-gray-400 hover:text-red-500 mt-2 flex items-center gap-1"><i class="fa-solid fa-xmark text-[10px]"></i> Remove</button>
+                    </div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="flex flex-col sm:flex-row items-start gap-4 py-4 border-b border-gray-100 last:border-b-0">
+                    <div class="w-24 h-24 border border-gray-200 rounded p-2 bg-gray-50 flex items-center justify-center flex-shrink-0">
+                        <i class="fa-solid fa-shoe-prints text-3xl text-gray-400 transform -rotate-45"></i>
+                    </div>
+                    <div class="flex-grow">
+                        <h3 class="font-bold text-sm text-gray-900">Acton Propulsion</h3>
+                        <p class="text-xs text-gray-400 mt-0.5">Canadian Footwear</p>
+                        <p class="text-xs text-gray-500 mt-1">Color: <span class="font-medium text-gray-800">Blue, Brown</span> | Size: <span class="font-medium text-gray-800">6</span></p>
+                        <div class="flex items-center gap-2 mt-3 text-sm">
+                            <span class="text-gray-400 line-through">$652</span>
+                            <span class="font-bold text-gray-950">$652</span>
+                            <span class="text-red-500 text-xs font-semibold">20% OFF</span>
+                        </div>
+                    </div>
+                    <div class="flex sm:flex-col items-end justify-between w-full sm:w-auto h-full sm:h-24 mt-4 sm:mt-0">
+                        <div class="join border border-black rounded-sm bg-black text-white overflow-hidden">
+                            <button class="btn btn-xs join-item bg-black hover:bg-neutral text-white border-none px-2"><i class="fa-solid fa-minus text-[10px]"></i></button>
+                            <span class="px-3 py-0.5 text-xs font-semibold flex items-center bg-white text-black">1</span>
+                            <button class="btn btn-xs join-item bg-black hover:bg-neutral text-white border-none px-2"><i class="fa-solid fa-plus text-[10px]"></i></button>
+                        </div>
+                        <button class="text-xs text-gray-400 hover:text-red-500 mt-2 flex items-center gap-1"><i class="fa-solid fa-xmark text-[10px]"></i> Remove</button>
+                    </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="flex flex-col sm:flex-row items-start gap-4 py-4 border-b border-gray-100 last:border-b-0">
+                    <div class="w-24 h-24 border border-gray-200 rounded p-2 bg-gray-50 flex items-center justify-center flex-shrink-0">
+                        <i class="fa-solid fa-shoe-prints text-3xl text-gray-400 transform -rotate-45"></i>
+                    </div>
+                    <div class="flex-grow">
+                        <h3 class="font-bold text-sm text-gray-900">Kodiak Trek</h3>
+                        <p class="text-xs text-gray-400 mt-0.5">Canadian Footwear</p>
+                        <p class="text-xs text-gray-500 mt-1">Color: <span class="font-medium text-gray-800">Blue, Brown</span> | Size: <span class="font-medium text-gray-800">6</span></p>
+                        <div class="flex items-center gap-2 mt-3 text-sm">
+                            <span class="text-gray-400 line-through">$652</span>
+                            <span class="font-bold text-gray-950">$652</span>
+                            <span class="text-red-500 text-xs font-semibold">20% OFF</span>
+                        </div>
+                    </div>
+                    <div class="flex sm:flex-col items-end justify-between w-full sm:w-auto h-full sm:h-24 mt-4 sm:mt-0">
+                        <div class="join border border-black rounded-sm bg-black text-white overflow-hidden">
+                            <button class="btn btn-xs join-item bg-black hover:bg-neutral text-white border-none px-2"><i class="fa-solid fa-minus text-[10px]"></i></button>
+                            <span class="px-3 py-0.5 text-xs font-semibold flex items-center bg-white text-black">1</span>
+                            <button class="btn btn-xs join-item bg-black hover:bg-neutral text-white border-none px-2"><i class="fa-solid fa-plus text-[10px]"></i></button>
+                        </div>
+                        <button class="text-xs text-gray-400 hover:text-red-500 mt-2 flex items-center gap-1"><i class="fa-solid fa-xmark text-[10px]"></i> Remove</button>
+                    </div>
+                </div>
+
+                <!-- Item 4 -->
+                <div class="flex flex-col sm:flex-row items-start gap-4 py-4 border-b border-gray-100 last:border-b-0">
+                    <div class="w-24 h-24 border border-gray-200 rounded p-2 bg-gray-50 flex items-center justify-center flex-shrink-0">
+                        <i class="fa-solid fa-shoe-prints text-3xl text-gray-400 transform -rotate-45"></i>
+                    </div>
+                    <div class="flex-grow">
+                        <h3 class="font-bold text-sm text-gray-900">Terra Crossbow</h3>
+                        <p class="text-xs text-gray-400 mt-0.5">Canadian Footwear</p>
+                        <p class="text-xs text-gray-500 mt-1">Color: <span class="font-medium text-gray-800">Blue, Brown</span> | Size: <span class="font-medium text-gray-800">6</span></p>
+                        <div class="flex items-center gap-2 mt-3 text-sm">
+                            <span class="text-gray-400 line-through">$652</span>
+                            <span class="font-bold text-gray-950">$652</span>
+                            <span class="text-red-500 text-xs font-semibold">20% OFF</span>
+                        </div>
+                    </div>
+                    <div class="flex sm:flex-col items-end justify-between w-full sm:w-auto h-full sm:h-24 mt-4 sm:mt-0">
+                        <div class="join border border-black rounded-sm bg-black text-white overflow-hidden">
+                            <button class="btn btn-xs join-item bg-black hover:bg-neutral text-white border-none px-2"><i class="fa-solid fa-minus text-[10px]"></i></button>
+                            <span class="px-3 py-0.5 text-xs font-semibold flex items-center bg-white text-black">1</span>
+                            <button class="btn btn-xs join-item bg-black hover:bg-neutral text-white border-none px-2"><i class="fa-solid fa-plus text-[10px]"></i></button>
+                        </div>
+                        <button class="text-xs text-gray-400 hover:text-red-500 mt-2 flex items-center gap-1"><i class="fa-solid fa-xmark text-[10px]"></i> Remove</button>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- RIGHT COLUMN: SIDEBAR (COUPON & ORDER SUMMARY) -->
+            <div class="flex flex-col gap-6">
+                
+                <!-- Coupons Section -->
+                <div class="bg-white rounded-lg shadow-sm border border-gray-100 p-6">
+                    <h3 class="text-sm font-semibold text-gray-500 mb-3">Coupons</h3>
+                    <div class="flex gap-2">
+                        <input type="text" placeholder="Coupon code" class="input input-bordered input-sm rounded-sm flex-grow bg-white text-xs focus:outline-none" />
+                        <button class="btn btn-sm bg-black hover:bg-neutral text-white text-xs font-bold rounded-sm px-4">APPLY NOW</button>
+                    </div>
+                </div>
+
+                <!-- Your Order Section -->
+                <div class="bg-white rounded-lg shadow-sm border border-gray-100 p-6 text-xs text-gray-600 space-y-4">
+                    <h3 class="text-sm font-bold text-gray-900 border-b border-gray-100 pb-2">Your Order</h3>
+                    
+                    <div class="flex justify-between">
+                        <span>Subtotal (2 items)</span>
+                        <span class="font-bold text-gray-950">$53.89</span>
+                    </div>
+
+                    <!-- Delivery Options -->
+                    <div class="space-y-2 border-b border-gray-100 pb-3">
+                        <span class="font-bold text-gray-900 block">Delivery</span>
+                        <label class="flex items-center gap-2 cursor-pointer">
+                            <input type="radio" name="delivery" class="radio radio-xs checked:bg-[#FF6600]" checked />
+                            <span class="font-medium text-gray-950">Delivery: <span class="font-bold">$7.99</span></span>
+                        </label>
+                        <div class="flex items-center gap-2 justify-between">
+                            <label class="flex items-center gap-2 cursor-pointer">
+                                <input type="radio" name="delivery" class="radio radio-xs checked:bg-[#FF6600]" />
+                                <span class="text-gray-500">Pick Up</span>
+                            </label>
+                            <select class="select select-bordered select-xs bg-white text-gray-600 rounded-sm">
+                                <option>Asap</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Tip Options -->
+                    <div class="space-y-2 border-b border-gray-100 pb-3">
+                        <span class="font-bold text-gray-900 block">Tip</span>
+                        <div class="grid grid-cols-3 gap-2">
+                            <label class="flex items-center gap-1.5 cursor-pointer">
+                                <input type="radio" name="tip" class="radio radio-xs checked:bg-[#FF6600]" />
+                                <span>$2.00</span>
+                            </label>
+                            <label class="flex items-center gap-1.5 cursor-pointer">
+                                <input type="radio" name="tip" class="radio radio-xs checked:bg-[#FF6600]" checked />
+                                <span class="text-[#FF6600] font-bold">$4.00</span>
+                            </label>
+                            <label class="flex items-center gap-1.5 cursor-pointer">
+                                <input type="radio" name="tip" class="radio radio-xs checked:bg-[#FF6600]" />
+                                <span>$7.00</span>
+                            </label>
+                        </div>
+                        <div class="flex gap-2 mt-2">
+                            <div class="relative w-1/2">
+                                <input type="text" value="10" class="input input-bordered input-xs w-full text-center pr-4 bg-white font-medium" />
+                                <span class="absolute right-2 top-1 text-gray-400 text-[10px]">%</span>
+                            </div>
+                            <div class="relative w-1/2">
+                                <input type="text" value="4" class="input input-bordered input-xs w-full text-center pl-4 bg-white font-medium" />
+                                <span class="absolute left-2 top-1 text-gray-400 text-[10px]">$</span>
+                            </div>
+                            <div class="text-right text-[11px] self-center w-full">Total: <span class="font-bold text-gray-950">$2.50</span></div>
+                        </div>
+                    </div>
+
+                    <!-- Fees & Tax -->
+                    <div class="space-y-2 border-b border-gray-100 pb-3">
+                        <div class="flex justify-between">
+                            <span>Service Fee</span>
+                            <span class="font-bold text-gray-950">$1.50</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Tax</span>
+                            <span class="font-bold text-gray-950">$7.00</span>
+                        </div>
+                    </div>
+
+                    <!-- E-Market Credits -->
+                    <div class="flex justify-between items-center border-b border-gray-100 pb-3">
+                        <label class="flex items-center gap-2 cursor-pointer">
+                            <input type="checkbox" class="checkbox checkbox-xs rounded-sm checked:bg-[#FF6600] [--chkbg:#FF6600] [--chkfg:white]" checked />
+                            <span class="text-gray-600 font-medium">Use E-Markets Credits</span>
+                        </label>
+                        <span class="font-bold text-gray-950">$0.00</span>
+                    </div>
+
+                    <!-- Total Payable -->
+                    <div class="flex justify-between items-center text-sm font-bold text-gray-900 pt-1">
+                        <span>Total Payable</span>
+                        <span class="text-base text-gray-950">$68.88</span>
+                    </div>
+
+                    <!-- Checkout Button -->
+                    <button class="btn w-full bg-[#FF6600] hover:bg-[#e65c00] text-white border-none font-bold rounded-sm mt-4 text-xs tracking-wider">
+                        PROCEED TO CHECKOUT
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- TRUST BADGES BAR -->
+    <section class="bg-white border-t border-b border-gray-100 py-8 px-4 md:px-12 mt-16">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+            <div class="flex flex-col md:flex-row items-center gap-4">
+                <div class="p-3 bg-gray-50 border border-gray-200 rounded-lg text-gray-500"><i class="fa-solid fa-gift text-2xl"></i></div>
+                <div>
+                    <h4 class="font-bold text-sm text-gray-900">Gift Cards</h4>
+                    <p class="text-xs text-gray-400 mt-1">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</p>
+                </div>
+            </div>
+            <div class="flex flex-col md:flex-row items-center gap-4">
+                <div class="p-3 bg-gray-50 border border-gray-200 rounded-lg text-gray-500"><i class="fa-solid fa-shield-halved text-2xl"></i></div>
+                <div>
+                    <h4 class="font-bold text-sm text-gray-900">100% ORIGINAL</h4>
+                    <p class="text-xs text-gray-400 mt-1">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</p>
+                </div>
+            </div>
+            <div class="flex flex-col md:flex-row items-center gap-4">
+                <div class="p-3 bg-gray-50 border border-gray-200 rounded-lg text-gray-500"><i class="fa-solid fa-arrow-rotate-left text-2xl"></i></div>
+                <div>
+                    <h4 class="font-bold text-sm text-gray-900">Easy Returns</h4>
+                    <p class="text-xs text-gray-400 mt-1">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-white pt-12 pb-6 px-4 md:px-12 border-t border-gray-100 text-xs">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 pb-12 border-b border-gray-100">
+            <!-- Col 1: Brand -->
+            <div class="space-y-3">
+                <div class="flex items-center gap-2 font-bold text-lg">
+                    <span class="bg-black text-white px-1.5 py-0.5 rounded text-xs flex flex-col items-center justify-center leading-none"><span>C</span><span>M</span></span>
+                    <span class="text-black">Canadian<span class="text-[#FF6600]">Market</span></span>
+                </div>
+                <p class="text-gray-400">Canadian Markets</p>
+                <p class="text-gray-400 mt-4">&copy; 2019 Canadian Market</p>
+            </div>
+            <!-- Col 2: Categories -->
+            <div>
+                <h5 class="font-bold text-gray-900 mb-3">Categories</h5>
+                <ul class="space-y-2 text-gray-500">
+                    <li><a href="#" class="hover:text-gray-800">Stores</a></li>
+                    <li><a href="#" class="hover:text-gray-800">Marketplace</a></li>
+                    <li><a href="#" class="hover:text-gray-800">Restaurants</a></li>
+                </ul>
+            </div>
+            <!-- Col 3: Quick Links -->
+            <div>
+                <h5 class="font-bold text-gray-900 mb-3">Quick Links</h5>
+                <ul class="space-y-2 text-gray-500">
+                    <li><a href="#" class="hover:text-gray-800">Terms and Conditions</a></li>
+                    <li><a href="#" class="hover:text-gray-800">Privacy Policy</a></li>
+                    <li><a href="#" class="hover:text-gray-800">Help</a></li>
+                    <li><a href="#" class="hover:text-gray-800">Refer a Friend</a></li>
+                </ul>
+            </div>
+            <!-- Col 4: Subscribe -->
+            <div>
+                <h5 class="font-bold text-gray-900 mb-3">Subscribe Now</h5>
+                <div class="flex">
+                    <input type="email" placeholder="Enter Your email address" class="input input-bordered input-sm rounded-l-sm bg-gray-50 w-full focus:outline-none" />
+                    <button class="btn btn-sm bg-[#FF6600] hover:bg-[#e65c00] text-white border-none rounded-r-sm px-3"><i class="fa-solid fa-paper-plane"></i></button>
+                </div>
+                <div class="flex gap-3 mt-4 text-gray-400 text-base">
+                    <a href="#" class="hover:text-blue-600"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="hover:text-red-500"><i class="fa-brands fa-google-plus-g"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
 
 </body>
 </html>

@@ -27,7 +27,7 @@
                         <div class="mt-6">
                             @if (Route::has('filament.dashboard.auth.login'))
                             @auth
-                            <button class="btn btn-primary btn-block">Register Now!</button>
+                            <a href="{{ route('filament.dashboard.pages.registration', ['product' => $product->id]) }}" class="btn btn-primary btn-block">Register Now!</a>
                             @else
                             <a href="{{ route('filament.dashboard.auth.login') }}" class="btn btn-primary btn-block">Log
                                 in</a>
