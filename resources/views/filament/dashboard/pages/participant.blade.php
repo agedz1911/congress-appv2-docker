@@ -15,7 +15,9 @@
                         <div>
                             <h1 class="text-xl font-bold text-slate-900 flex items-center gap-2 justify-center sm:justify-start">
                                 {{ trim(($profile['firstname'] ?? '-') . ' ' . ($profile['lastname'] ?? '')) }}
-                                <div class="badge badge-soft badge-info badge-xs">Participant</div>
+                                <div class="badge badge-soft badge-info badge-xs">
+                                    {{ collect($profile['roles'] ?? [])->join(', ') ?: '-' }}
+                                </div>
                             </h1>
                             <p class="text-sm text-slate-500">ID: {{ $profile['id'] ?? 'Belum tersedia' }}</p>
                         </div>

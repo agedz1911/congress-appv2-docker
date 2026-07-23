@@ -4,6 +4,8 @@ namespace App\Filament\Dashboard\Pages\MyRegistration;
 
 use App\Models\Transaction\Order;
 use BackedEnum;
+use Filament\Actions\Action;
+use Filament\Pages\Dashboard;
 use Filament\Support\Icons\Heroicon;
 use Filament\Pages\Page;
 use Illuminate\Support\Collection;
@@ -20,6 +22,25 @@ class Index extends Page
     protected static ?string $title = 'My Registration';
 
     protected static ?string $slug = 'registration';
+
+    public function getBreadcrumbs(): array
+    {
+        return [
+            Dashboard::getUrl(panel: 'dashboard') => 'Dashboard',
+            static::getUrl(panel: 'dashboard') => 'Registration',
+        ];
+    }
+
+    protected function getHeaderActions(): array
+    {
+        return [
+            Action::make('create')
+                ->label('Create Registration')
+                ->icon(Heroicon::Plus)
+                ->color('primary')
+                ->url(Create::getUrl()),
+        ];
+    }
 
     public function getMyOrdersProperty(): Collection
     {

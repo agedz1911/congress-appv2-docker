@@ -92,7 +92,13 @@ class ParticipantResource extends Resource
                 TextInput::make('province'),
                 TextInput::make('postal_code')
                     ->numeric(),
-                TextInput::make('roles'),
+                Select::make('roles')
+                    ->multiple()
+                    ->options([
+                        'participant' => 'Participant',
+                        'speaker' => 'Speaker',
+                        'committee' => 'Committee',
+                    ]),
             ]);
     }
 
@@ -139,6 +145,9 @@ class ParticipantResource extends Resource
                     ->placeholder('-'),
                 TextEntry::make('updated_at')
                     ->dateTime()
+                    ->placeholder('-'),
+                TextEntry::make('roles')
+                    ->getStateUsing(fn(Participant $record): string => implode(', ', $record->roles ?? []))
                     ->placeholder('-'),
             ]);
     }

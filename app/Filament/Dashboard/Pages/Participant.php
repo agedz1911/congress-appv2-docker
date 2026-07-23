@@ -135,6 +135,7 @@ class Participant extends Page
                 'city' => $this->participant->city,
                 'province' => $this->participant->province,
                 'postal_code' => $this->participant->postal_code,
+                'roles' => $this->participant->roles ?? [],
             ];
 
             return;
@@ -158,6 +159,7 @@ class Participant extends Page
             'city' => null,
             'province' => null,
             'postal_code' => null,
+            'roles' => [],
         ];
     }
 
